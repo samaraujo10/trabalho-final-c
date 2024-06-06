@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+typedef struct {
+    int matricula;
+    char nome[50];
+    float notaAV;
+    float simulado1;
+    float simulado2;
+} Aluno;
+
+void lerDadosAluno(Aluno *aluno) {
+    printf("Digite a matricula: ");
+    scanf("%d", &aluno->matricula);
+    printf("Digite o nome: ");
+    scanf(" %[^\n]", aluno->nome); 
+    printf("Digite a nota da AV: ");
+    scanf("%f", &aluno->notaAV);
+    printf("Digite a nota do Simulado 1: ");
+    scanf("%f", &aluno->simulado1);
+    printf("Digite a nota do Simulado 2: ");
+    scanf("%f", &aluno->simulado2);
+}
+
+void exibirDadosAluno(const Aluno *aluno) {
+    printf("\nDados do Aluno:\n");
+    printf("Matricula: %d\n", aluno->matricula);
+    printf("Nome: %s\n", aluno->nome);
+    printf("Nota da AV: %.2f\n", aluno->notaAV);
+    printf("Nota do Simulado 1: %.2f\n", aluno->simulado1);
+    printf("Nota do Simulado 2: %.2f\n", aluno->simulado2);
+}
+
+int main() {
+    Aluno aluno;
+
+    lerDadosAluno(&aluno);
+
+    exibirDadosAluno(&aluno);
+    
+    return 0;
+}
